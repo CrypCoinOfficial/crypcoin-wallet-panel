@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers/react';
+import { useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/react';
+import { ethers } from 'ethers';
 
-// Configuración Web3Modal
+// Configuración de Web3Modal
 const projectId = 'c264c3eb3939f207e269689e94b7faf5';
 const metadata = {
   name: 'CrypCoin Wallet',
@@ -14,9 +16,6 @@ const metadata = {
 const chains = [{ chainId: 137, name: 'Polygon', rpcUrls: ['https://polygon-rpc.com'] }];
 const config = defaultConfig({ chains, projectId, metadata });
 createWeb3Modal({ ethersConfig: config, chains, projectId });
-
-import { useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/react';
-import { ethers } from 'ethers';
 
 export default function App() {
   const { address, isConnected } = useWeb3ModalAccount();
